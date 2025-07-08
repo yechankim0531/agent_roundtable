@@ -1,0 +1,39 @@
+<body class="bg-gray-100 min-h-screen flex flex-col items-center px-4 py-10">
+  <div class="bg-white rounded-2xl shadow-lg max-w-xl w-full flex flex-col space-y-4 p-6">
+
+    <h1 class="text-2xl font-bold text-center text-gray-800">🧠 AI Agent Roundtable</h1>
+
+    <!-- CHAT WINDOW -->
+    <div id="chat-window" class="flex flex-col gap-4 h-96 overflow-y-auto border rounded-xl p-4 bg-gray-50"></div>
+
+    <!-- CHAT INPUT -->
+    <div class="flex gap-2">
+      <input
+        id="chat-input"
+        type="text"
+        placeholder="Say something..."
+        class="flex-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <button
+        id="send-btn"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl transition"
+      >
+        Send
+      </button>
+    </div>
+
+  </div>
+
+  <script type="module">
+    import { handleChatSubmit } from './chat.js';
+
+    const inputEl = document.getElementById('chat-input');
+    const chatWindow = document.getElementById('chat-window');
+    const sendBtn = document.getElementById('send-btn');
+
+    sendBtn.addEventListener('click', () => handleChatSubmit(inputEl, chatWindow));
+    inputEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handleChatSubmit(inputEl, chatWindow);
+    });
+  </script>
+</body>
