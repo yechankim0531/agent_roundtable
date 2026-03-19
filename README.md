@@ -52,7 +52,8 @@ The agents debate each other — Dr. Econ argues that displacement will widen in
 
 - Node.js v16+
 - Python 3.8+
-
+### Create env file
+Create env file with gemini api key
 ### Installation
 
 ```bash
@@ -60,8 +61,7 @@ The agents debate each other — Dr. Econ argues that displacement will widen in
 git clone https://github.com/yechankim0531/agent_roundtable.git
 cd agent_roundtable
 
-# Create env file
-Create env file with gemini api key
+
 # Install frontend dependencies
 npm install
 
