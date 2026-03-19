@@ -1,126 +1,123 @@
-# AI Agent Roundtable
+# Agent Roundtable
 
-A modern React-based chat interface for AI agent conversations, built with TypeScript, Tailwind CSS, and Vite.
+A group chat application where AI agents with custom personas debate, discuss, and challenge each other in real time. Create agents with distinct backgrounds and viewpoints, add them to a roundtable, and watch them engage in multi-perspective conversations.
 
-## �� Features
+> Built with React · TypeScript · Python · Tailwind CSS · Vite
 
-- **Real-time Chat Interface**: Clean, modern UI with message bubbles
-- **Modular Architecture**: Separated into reusable React components
-- **TypeScript Support**: Full type safety throughout the application
-- **Responsive Design**: Works on desktop and mobile devices
-- **Sidebar Navigation**: Group member management panel
-- **Auto-scroll**: Automatically scrolls to latest messages
-- **Keyboard Shortcuts**: Enter to send, Shift+Enter for new line
+---
 
-## 📋 Prerequisites
+## What It Does
 
-- **Node.js** (v16 or higher)
-- **npm** (comes with Node.js)
+Instead of a 1-on-1 chat with a single AI, Agent Roundtable lets you set up a room of AI agents — each with their own name, role, and detailed persona — and have them discuss any topic together.
 
-## 🛠️ Installation
+**Key capabilities:**
 
-1. **Clone or copy the project** to your local machine
+- **Custom AI Personas** — Define each agent's name, role/title, and background. A behavioral economist will argue very differently than a Silicon Valley founder.
+- **Multi-Agent Conversations** — Agents don't just reply to you. They respond to each other, debate, push back, and build on arguments.
+- **@ Mentions** — Direct questions to specific agents mid-conversation to steer the discussion.
+- **Roundtable Topics** — Create multiple roundtables around different topics, each with their own set of agents.
+- **Real-Time Chat UI** — Clean, responsive chat interface with message bubbles, auto-scroll, and keyboard shortcuts.
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+---
 
-3. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
+## Example
 
-4. **Open your browser** and navigate to the URL shown in the terminal (usually `http://localhost:5173`)
+Create a roundtable called "Future of AI" with two agents:
 
-## 📁 Project Structure
-src/
-├── components/
-│ └── Chat/
-│ ├── GroupChat.tsx # Main orchestrator component
-│ ├── ChatHeader.tsx # Header with navigation
-│ ├── ChatMessages.tsx # Scrollable messages area
-│ ├── ChatInput.tsx # Input bar with send button
-│ ├── ChatBubble.tsx # Individual message bubble
-│ ├── Sidebar.tsx # Slide-in member panel
-│ ├── useChatLogic.ts # Custom hook for chat state
-│ └── types.ts # TypeScript interfaces
-├── index.html # Main HTML file
-├── main.tsx # React entry point
-└── style.css # Tailwind CSS imports
+| Agent | Role | Perspective |
+|-------|------|-------------|
+| Dr. Econ | Behavioral Economist | Skeptical of techno-optimism, centers working-class impact, data-driven |
+| Mr. Founder | Silicon Valley Entrepreneur | Believes technology always creates more than it destroys, pro-disruption |
 
+Ask: *"Will AI create more jobs than it destroys over the next 20 years?"*
 
-## 🎮 Available Scripts
+The agents debate each other — Dr. Econ argues that displacement will widen inequality without policy intervention, while Mr. Founder pushes back that markets adapt and create new opportunities. You can jump in with @ mentions to steer the conversation in any direction.
 
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
+---
 
-## 📦 Dependencies
+## Tech Stack
 
-### Production Dependencies
-- `react` (^19.1.0) - React library
-- `react-dom` (^19.1.0) - React DOM rendering
-- `lucide-react` (^0.525.0) - Beautiful icon library
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 19, TypeScript, Tailwind CSS |
+| Backend | Python |
+| Build Tool | Vite |
+| Icons | Lucide React |
 
-### Development Dependencies
-- `@types/react` (^19.1.8) - TypeScript types for React
-- `@types/react-dom` (^19.1.6) - TypeScript types for React DOM
-- `@vitejs/plugin-react` (^4.6.0) - Vite plugin for React
-- `typescript` (^5.8.3) - TypeScript compiler
-- `vite` (^7.0.2) - Fast build tool and dev server
-- `tailwindcss` (^4.1.11) - Utility-first CSS framework
-- `postcss` (^8.5.6) - CSS processor
-- `autoprefixer` (^10.4.21) - CSS vendor prefixing
+---
 
-## 🏗️ Technology Stack
+## Getting Started
 
-- **Frontend Framework**: React 19 + TypeScript
-- **Styling**: Tailwind CSS
-- **Build Tool**: Vite
-- **Icons**: Lucide React
-- **Package Manager**: npm
+### Prerequisites
 
-## 🔧 Configuration Files
+- Node.js v16+
+- Python 3.8+
 
-- `vite.config.js` - Vite configuration with React plugin
-- `tailwind.config.js` - Tailwind CSS configuration
-- `postcss.config.js` - PostCSS configuration
-- `tsconfig.json` - TypeScript configuration
-
-## 🚀 Quick Start for New Environments
+### Installation
 
 ```bash
-# 1. Navigate to project directory
+# Clone the repository
+git clone https://github.com/yechankim0531/agent_roundtable.git
 cd agent_roundtable
 
-# 2. Install all dependencies
+# Create env file
+Create env file with gemini api key
+# Install frontend dependencies
 npm install
 
-# 3. Start development server
+# Install backend dependencies
+cd backend
+pip install -r requirements.txt
+cd ..
+```
+
+### Running the App
+
+```bash
+# Start both frontend and backend
+# On Windows:
+start.bat
+
+# Or manually:
+# Terminal 1 - Backend
+cd backend
+python main.py
+
+# Terminal 2 - Frontend
 npm run dev
 ```
 
-## 📝 Development Notes
+Open `http://localhost:5173` in your browser.
 
-- The project uses a modular component architecture for maintainability
-- All components are TypeScript-based for better type safety
-- Tailwind CSS is used for styling with utility classes
-- The chat interface supports both user and agent messages
-- The sidebar can be toggled for group member management
+---
 
-## 🤝 Contributing
+## Project Structure
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+```
+agent_roundtable/
+├── src/
+│   └── components/
+│       └── Chat/
+│           ├── GroupChat.tsx       # Main orchestrator
+│           ├── ChatHeader.tsx      # Header with navigation
+│           ├── ChatMessages.tsx    # Scrollable message area
+│           ├── ChatInput.tsx       # Input with @ mention support
+│           ├── ChatBubble.tsx      # Individual message bubble
+│           ├── Sidebar.tsx         # Agent management panel
+│           ├── useChatLogic.ts     # Chat state management hook
+│           └── types.ts           # TypeScript interfaces
+├── backend/
+│   └── main.py                    # Python API server
+├── vite.config.js
+├── tailwind.config.js
+└── package.json
+```
 
-## 📄 License
+---
 
-This project is licensed under the ISC License.
+## Use Cases
 
-## 🐛 Issues
-
-If you encounter any issues, please report them on the [GitHub issues page](https://github.com/yechankim0531/agent_roundtable/issues).
+- **Product development** — Add a PM, engineer, designer, and business analyst to get multi-angle feedback on features
+- **Debate and research** — Set up opposing viewpoints on any topic to stress-test your thinking
+- **Decision making** — Create agents representing different stakeholders to explore trade-offs
+- **Learning** — Have experts from different fields discuss a topic to understand it from multiple angles
